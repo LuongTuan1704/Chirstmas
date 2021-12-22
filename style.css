@@ -1,0 +1,289 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+html {
+	font-size: 62.5%;
+}
+body {
+	font-size: 1.6rem;
+	font-family: "Source Code Pro", monospace;
+	min-height: 100vh;
+}
+
+.appContainer {
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: blanchedalmond;
+}
+.appBackground-default {
+	width: inherit;
+	height: inherit;
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	background: url("./images/ftbg.png") no-repeat center bottom;
+	background-size: 100% 100%;
+	transition: opacity 500ms linear;
+}
+/* .appBackground-default::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	width: inherit;
+	height: inherit;
+	background: transparent url("./images/balls.png") no-repeat right top;
+	background-size: 16%;
+} */
+.appBackground-default::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	height: inherit;
+	width: inherit;
+	background: transparent url("./images/gifs.png") no-repeat center
+		calc(100% + 35px);
+	background-size: 100% 50%;
+}
+
+@media (min-width: 920px) {
+	.appBackground-default {
+		background-size: cover;
+	}
+	.appBackground-default::before {
+		background-position: left 0%;
+		background-size: 5%;
+	}
+	.appBackground-default::after {
+		background-position: center 118%;
+		background-size: 36% 50%;
+	}
+}
+.introComponent {
+	position: relative;
+	width: 320px;
+	min-height: 300px;
+	background-image: url("./images/intro-bg2.png");
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	z-index: 11;
+}
+.intro {
+	position: absolute;
+	bottom: 0%;
+	width: 80%;
+	left: 50%;
+	transform: translate(-50%, 0);
+	text-align: left;
+	line-height: 1.1;
+	font-size: 1.45rem;
+	padding-left: 5px;
+}
+.intro img {
+	width: 35px;
+	display: block;
+	margin: 0 auto;
+	animation: Textpulse 888ms ease-in-out infinite;
+}
+.intro-text {
+	display: block;
+	padding: 0px 38px 15px;
+	width: 100%;
+	min-height: 80px;
+	text-align: left;
+	line-height: 1.2;
+	font: 1.25rem;
+}
+
+.buttons {
+	position: absolute;
+	z-index: 9999;
+	bottom: -50px;
+	left: 50%;
+	transform: translate(-50%, 0);
+	padding: 25px 0 25px 5px;
+	margin: 0 auto;
+	width: 80%;
+	align-items: center;
+	display: flex;
+	justify-content: space-around;
+	visibility: hidden;
+}
+.btn {
+	flex: 1;
+	border: none;
+	outline: none;
+	padding: 6px 12px;
+	border-radius: 6px;
+	font-size: 1.25rem;
+	font-weight: bold;
+	text-transform: capitalize;
+	cursor: pointer;
+}
+.btn:nth-child(1) {
+	animation-delay: 100ms;
+	animation: Textpulse 1.25s infinite ease-in-out;
+}
+
+.btn.button-accept {
+	background-color: #86efad28;
+	color: #15803d;
+}
+.btn.button-demiss {
+	background-color: #fca5a52a;
+	color: #991b1b;
+}
+
+.appBackground {
+	position: absolute;
+	inset: 0;
+	background-image: url("./images/bg.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	transition: 1.5s ease-out;
+	opacity: 0;
+}
+.loadingComponent {
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 8px;
+	display: none;
+}
+
+.hearts {
+	width: 88px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	z-index: 99;
+}
+.hide {
+	animation: hide 3s linear;
+}
+@keyframes hide {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0.5;
+	}
+}
+
+.heart {
+	position: relative;
+	width: 16px;
+	height: 16px;
+	background-color: hsl(1, 100%, 75%);
+	transform: rotate(-45deg);
+	border-radius: 0 0 0 3px;
+	animation: pulse 1s infinite ease-in-out;
+}
+.heart::before,
+.heart::after {
+	content: "";
+	position: absolute;
+	width: inherit;
+	height: inherit;
+	background-color: inherit;
+	border-radius: 50%;
+}
+.heart::before {
+	top: -50%;
+	left: 0;
+}
+.heart::after {
+	top: 0;
+	right: -50%;
+}
+
+.hearts > span {
+	display: block;
+	text-align: center;
+	font-size: 1.88rem;
+	font-weight: bold;
+	color: coral;
+	z-index: 1;
+}
+
+@keyframes pulse {
+	0%,
+	20% {
+		transform: rotate(-45deg) scale(1);
+	}
+	30% {
+		transform: rotate(-45deg) scale(1.2);
+	}
+	50% {
+		transform: rotate(-45deg) scale(1);
+	}
+	60% {
+		transform: rotate(-45deg) scale(1.1);
+	}
+	70%,
+	100% {
+		transform: rotate(-45deg) scale(1);
+	}
+}
+
+#canvas {
+	position: absolute;
+	z-index: 10;
+	background: transparent;
+	width: 100%;
+	inset: 0;
+}
+.content {
+	width: 75%;
+	z-index: 999;
+	display: none;
+}
+
+.text {
+	text-align: center;
+	user-select: none;
+	color: whitesmoke;
+	text-transform: capitalize;
+	font-size: 2.88rem;
+	position: relative;
+}
+@keyframes Textpulse {
+	0%,
+	20% {
+		transform: scale(1);
+	}
+	30% {
+		transform: (1.2);
+	}
+	50% {
+		transform: scale(1);
+	}
+	60% {
+		transform: scale(1.1);
+	}
+	70%,
+	100% {
+		transform: scale(1);
+	}
+}
+
+.text > .heart {
+	position: absolute;
+	right: 0;
+	top: -50%;
+}
+
+@media (min-width: 720px) {
+	.text {
+		font-size: 4.5rem;
+	}
+}

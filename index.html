@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1.0, user-scalable=no">
+    <title>Christmas</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Source+Code+Pro:wght@300&display=swap');
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="appContainer" id="app">
+        <div class="introComponent">
+            <div class="intro">
+                <img class="gif" src="./images/gifbox.png">
+                <span class="intro-text">
+                </span>
+            </div>
+            <div class="buttons">
+                <button class="btn button-accept">
+                    Lấy
+                </button>
+                <span style="font-size: 1.2rem; margin: 0 3px; cursor: default;">hay</span>
+                <button class="btn button-demiss">
+                    không?
+                </button>
+            </div>
+        </div>
+        <div class="loadingComponent">
+            <div class="hearts">
+                <span>I</span>
+                <div class="heart"></div>
+                <span>U</span>
+
+            </div>
+        </div>
+        <div class="appBackground-default"></div>
+        <div class="appBackground">
+        </div>
+        <canvas id='canvas'></canvas>
+        <div class="content">
+            <h1 class="text"></h1>
+        </div>
+    </div>
+</body>
+<script type="module" src="typical.js"></script>
+<script type="module" src="app.js"></script>
+
+</html>
