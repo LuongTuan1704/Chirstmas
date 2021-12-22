@@ -28,7 +28,7 @@ const textAnimate = () => {
 const img = new Image();
 img.src = "./images/flake.png";
 const music = new Audio("./ChristmasSongsLofi1.mp3");
-music.volume = 0.99;
+music.volume = 1;
 function fullScreen() {
     if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
         if (elem.requestFullscreen) {
@@ -93,7 +93,7 @@ wait(250).then(() => {
                 buttons.style.display = 'none'
                 introText.style.textAlign = 'center'
                 introText.textContent = '...'
-                type(introText, 2002, 'Hmm', 1500, 'Chạm vào hộp xanh đi...')
+                type(introText, 2002, 'Hmm!', 1500, 'Chạm vào cái hộp xanh xanh ấy kk.')
                     .then(() => {
                         one(gif, 'click', () => {
                             main()
