@@ -66,15 +66,17 @@ function main() {
         await wait(250).then(() => music.play())
     }
 }
-
-wait(250).then(() => {
+window.onload = () => {
+    wait(250).then(() => {
     type(introText, 'Bé ơi!', 1888, 'Chạm vào chiếc hộp xanh xanh ấy đi.')
         .then(() => {
             one(gif, 'click', () => { main() })
             gif.style.cssText = "width: 48px;cursor: pointer"
             navigator.vibrate(1888)
         })
-})
+    }) 
+}
+
 
 let flakes = [],
     canvas = document.getElementById("canvas"),
